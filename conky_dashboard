@@ -1,0 +1,90 @@
+conky.config = {
+
+-------------------------------------
+--  Generic Settings
+-------------------------------------
+background=true,
+update_interval=1,
+double_buffer=true,
+no_buffers=true,
+imlib_cache_size=10,
+
+draw_shades=false,
+draw_outline=false,
+draw_borders=false,
+
+
+-------------------------------------
+--  Window Specifications
+-------------------------------------
+gap_x=0,
+gap_y=50,
+
+alignment="top_middle",
+
+minimum_height=10,
+minimum_width=600,
+
+own_window=true,
+own_window_type="normal",
+own_window_transparent=true,
+own_window_hints="undecorated,below,sticky,skip_taskbar,skip_pager",
+
+own_window_argb_visual=true,
+own_window_argb_value=50,
+
+
+-------------------------------------
+--  Text Settings
+-------------------------------------
+use_xft=true,
+xftalpha=1,
+font="Droid Sans:size=8",
+text_buffer_size=256,
+override_utf8_locale=true,
+
+
+-------------------------------------
+--  Color Scheme
+-------------------------------------
+default_color='FFFFFF',
+
+color0='FFFFFF', -- blanco
+color1='FFAA00',  -- anaranjado
+
+-------------------------------------
+--  Locale (e.g. "es_ES.UTF-8")
+--  Leave empty for default
+-------------------------------------
+template1="es_ES.UTF-8"
+
+}
+
+---------------------------------------------------
+---------------------------------------------------
+
+conky.text = [[
+\
+\
+${font ADELE:size=70}${color0}\
+${alignr}${offset -325}${time %H:%M}${image ~/.conky/line.png -p 300,0 -s 3x82}
+\
+${font ADELE:size=32}${color1}\
+${voffset -132}${goto 335}${execi 300 LANG=${template1} LC_TIME=${template1} date +"%d"}\
+\
+${font ADELE:size=30}${color0}\
+${voffset -5}${offset 5}\
+${execi 300 LANG=${template1} LC_TIME=${template1} date +"%A"}
+\
+${font ADELE:size=30}${color0}\
+${goto 335}\
+${execi 300 LANG=${template1} LC_TIME=${template1} date +"de %B"}\
+\
+${font ADELE:size=32}${color1}\
+${offset 5}${voffset 0}\
+${execi 300 LANG=${template1} LC_TIME=${template1} date +"%y"}\
+\
+\
+\
+\
+]]
